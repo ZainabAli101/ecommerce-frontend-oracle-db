@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSWKH Studio - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Styling and Reset --- */
+        :root {
+            --primary-color: #d21f2e; /* Dark Pink / Maroon */
+            --secondary-color: #222222; /* Dark Black */
+            --text-light: #f0f0f0;
+            --text-dark: #1a1a1a;
+            --bg-light: #ffffff;
+            --bg-dark: #111111;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark); 
+            color: var(--text-light);
+        }
+
+        /* --- Header Styling (Same as index.html) --- */
+        .header {
+            background-color: var(--secondary-color); 
+            padding: 15px 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 40px; 
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .logo a {
+            font-family: 'Playfair Display', serif; 
+            font-size: 30px; 
+            font-weight: 700;
+            color: var(--text-light); 
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .logo a:hover {
+             color: var(--primary-color);
+        }
+
+        /* --- Navigation Menu (Same as index.html, with active link change) --- */
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-item > a, .action-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 16px;
+            padding: 10px 12px;
+            transition: color 0.3s ease, border-bottom 0.3s;
+        }
+        /* Highlight current page link (Contact) */
+        .nav-item > .active-link {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-item > a:hover, .action-link:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Dropdown content styling is the same */
+        .dropdown-content { display: none; position: absolute; background-color: var(--secondary-color); min-width: 150px; box-shadow: 0 8px 16px 0px rgba(0,0,0,0.5); z-index: 10; top: 100%; left: 0; border-top: 3px solid var(--primary-color); }
+        .dropdown-content a { color: var(--text-light); padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown-content a:hover { background-color: #333333; color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Actions styling is the same */
+        .actions { display: flex; align-items: center; }
+        .search-icon { margin-right: 25px; cursor: pointer; font-size: 20px; color: var(--text-light); }
+        .search-icon:hover { color: var(--primary-color); }
+        .action-link { border: 1px solid var(--primary-color); padding: 8px 15px; border-radius: 5px; margin-left: 10px; font-weight: bold; }
+        .action-link.signup { background-color: var(--primary-color); color: white; border: none; }
+        .action-link.signup:hover { background-color: #9c1724; }
+        .action-link.login:hover { background-color: var(--primary-color); color: white; }
+
+
+        /* --- Contact Page Specific Layout --- */
+        .contact-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 40px;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            flex-basis: 30%;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222222;
+        }
+
+        .info-item h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-item p a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item p a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Footer Styling (Same as index.html) --- */
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 5%;
+            margin-top: 70px;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/Logo.jpg" alt="MSWKH Studio Logo" class="logo-image">
+            <div class="logo">
+                <a href="home1.html">MSWKH Studio</a>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="home1.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="active-link">More Info ▼</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">About Me</a>
+                        <a href="home1.html#products">Products</a>
+                        <a href="contact.html" class="active-link">Contact Info</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="actions">
+            <span class="search-icon">🔍</span> 
+            <a href="#" class="action-link login">Login</a>
+            <a href="#" class="action-link signup">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Get In Touch With MSWKH Studio</h2>
+            <p style="font-size: 18px; margin-bottom: 40px;">We'd love to hear from you! Whether you have questions about an order or a custom request, our team is ready to assist.</p>
+            
+            <div class="contact-info-grid">
+                <div class="info-item">
+                    <h3>✉ Email Us</h3>
+                    <p><a href="mailto:info@mswkhstudio.com">info@mswkhstudio.com</a></p>
+                    <p style="font-size: 14px; color: #aaa;">For general inquiries and support.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>📞 Call or WhatsApp</h3>
+                    <p><a href="tel:+921234567890">+92 123 4567890</a></p>
+                    <p style="font-size: 14px; color: #aaa;">Available during business hours.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🌐 Website</h3>
+                    <p><a href="home1.html">MSWKHStudio.com</a></p>
+                    <p style="font-size: 14px; color: #aaa;">Visit our online store.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+            <a href="contact.html">Support</a>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2025 MSWKH Studio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

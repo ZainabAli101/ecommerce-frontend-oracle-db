@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSWKH Studio - Home | Designer Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- General Styling and Reset --- */
+        :root {
+            --primary-color: #d21f2e;
+            /* Dark Pink / Maroon */
+            --secondary-color: #222222;
+            /* Dark Black */
+            --text-light: #f0f0f0;
+            --text-dark: #1a1a1a;
+            --bg-light: #ffffff;
+            --bg-dark: #111111;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            /* Black Background */
+            color: var(--text-light);
+        }
+
+        /* --- Header Styling --- */
+        .header {
+            background-color: var(--secondary-color);
+            /* Dark Header */
+            padding: 15px 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* UPDATED: Custom Logo Image */
+        .logo-image {
+            height: 50px;
+            /* Adjust size as needed */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo a {
+            font-family: 'Playfair Display', serif;
+            /* Stylish Font */
+            font-size: 50px;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .logo a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Navigation Menu (Dropdown/Active Link styles unchanged) --- */
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-item>a,
+        .action-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 16px;
+            padding: 10px 12px;
+            transition: color 0.3s ease, border-bottom 0.3s;
+        }
+
+        .nav-item>.active-link {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-item>a:hover,
+        .action-link:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--secondary-color);
+            min-width: 150px;
+            box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            top: 100%;
+            left: 0;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .dropdown-content a {
+            color: var(--text-light);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333333;
+            color: var(--primary-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            margin-right: 25px;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .search-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .action-link {
+            border: 1px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .action-link.signup {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .action-link.signup:hover {
+            background-color: #9c1724;
+        }
+
+        .action-link.login:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- Main Content (Hero Section) - UPDATED FOR SLIDER --- */
+        .hero {
+            /* Initial background (Will be overridden by JS) */
+            background-color: #111111;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 50px;
+            transition: background-image 1s ease-in-out;
+            /* Smooth transition for background image change */
+        }
+
+        /* New CSS classes for background images */
+        .hero-bg-1 {
+            background: url('images/shoping.jpg') no-repeat center center/cover;
+        }
+
+        .hero-bg-2 {
+            background: url('images/digiproducts.jpg') no-repeat center center/cover;
+        }
+
+        .hero-bg-3 {
+            background: url('images/sale.jpg') no-repeat center center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Moving/Sliding Text Styling (Unchanged) */
+        .sliding-text-container {
+            width: 80%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 2px solid var(--primary-color);
+            padding: 10px;
+            background-color: rgba(34, 34, 34, 0.7);
+            border-radius: 5px;
+        }
+
+        .sliding-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            white-space: nowrap;
+            animation: slide-in-out 15s linear infinite;
+        }
+
+        @keyframes slide-in-out {
+            0% {
+                transform: translateX(100%);
+            }
+
+            50% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #9c1724;
+        }
+
+        /* --- Product & Footer Styles (Unchanged) --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .container h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            border: 1px solid #333;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(210, 31, 46, 0.5);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 5%;
+            margin-top: 70px;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/Logo.jpg" alt="MSWKH Studio Logo" class="logo-image">
+            <div class="logo">
+                <a href="home1.html">MSWKH Studio</a>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="home1.html" class="active-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#">More Info ▼</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">About Me</a>
+                        <a href="products.php">Products</a>
+                        <a href="contact.html">Contact Info</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="actions">
+            <span class="search-icon">🔍</span>
+            <a href="login.php" class="action-link login">Login</a>
+            <a href="register.php" class="action-link signup">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero-slider">
+            <div class="hero-content">
+                <h1>Crafting Elegance. Defining Style.</h1>
+
+                <div class="sliding-text-container">
+                    <p class="sliding-text">Limited-Time Offer: Get 20% off all new collections! - Free Shipping on all
+                        orders!</p>
+                </div>
+
+                <a href="#products" class="cta-button">Explore New Arrivals</a>
+            </div>
+        </section>
+
+        <section class="container" id="products">
+            <h2>Featured Collections</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/Elegant Handcrafted Vase.jpg" alt="Elegant Handcrafted Vase">
+                    </div>
+                    <div class="product-info">
+                        <h3>Elegant Handcrafted Vase</h3>
+                        <p class="price">PKR 5,999</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/Limited Edition Art Print.jpg" alt="Limited Edition Art Print">
+                    </div>
+                    <div class="product-info">
+                        <h3>Limited Edition Art Print</h3>
+                        <p class="price">PKR 8,500</p>
+                        <a href="#" class="cta-button">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+            <a href="contact.html">Support</a>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2025 MSWKH Studio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hero = document.getElementById('hero-slider');
+        const backgrounds = ['hero-bg-1', 'hero-bg-2', 'hero-bg-3']; // CSS classes defined in <style>
+        let currentIndex = 0;
+
+        function changeBackground() {
+            // Remove previous background classes
+            hero.classList.remove(backgrounds[currentIndex]);
+
+            // Move to next index (loop back to 0 if end is reached)
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+
+            // Add the new background class
+            hero.classList.add(backgrounds[currentIndex]);
+        }
+
+        // Set the initial background
+        hero.classList.add(backgrounds[currentIndex]);
+
+        // Change background every 5000 milliseconds (5 seconds)
+        setInterval(changeBackground, 4000);
+    </script>
+
+</body>
+
+</html>

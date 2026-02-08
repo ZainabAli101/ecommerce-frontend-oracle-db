@@ -1,0 +1,90 @@
+/* login.css */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    /* Background image */
+    background: 
+        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+        url('images/shoping.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 380px;
+    margin: 80px auto;
+    background-color: #ffffffc9; /* semi-transparent */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+}
+
+h1 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 20px;
+}
+
+.error {
+    text-align: center;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 18px 0;
+    border-radius: 6px;
+    border: 1px solid #90caf9;
+    background-color: #f8faff;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #1e88e5;
+    box-shadow: 0 0 6px rgba(30, 136, 229, 0.4);
+    outline: none;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e88e5;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1565c0;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #333;
+}
+
+p a {
+    color: #0d47a1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+/* cart.css – Dark Theme (MSWKH Studio Style) */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #222222; /* Card container */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+h1 {
+    color: #d21f2e; /* Maroon heading */
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #222222;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+table th {
+    background-color: #d21f2e; /* Maroon */
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+table tr {
+    background-color: #222222;
+    transition: background 0.3s;
+}
+
+table tr:nth-child(even) {
+    background-color: #1a1a1a; /* Dark alternate row */
+}
+
+table tr:hover {
+    background-color: #2c2c2c; /* Hover effect */
+}
+
+/* Update Button */
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #d21f2e; /* Maroon button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #9c1724; /* Darker maroon */
+}
